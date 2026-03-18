@@ -1735,16 +1735,14 @@ body {
         if (!isOpen) {
           item.classList.add('open');
           toggle.setAttribute('aria-expanded', 'true');
-          // Posicionar el dropdown anclado al botón (alineado al borde derecho)
+          // Centrar el dropdown horizontalmente bajo el botón
           var rect = toggle.getBoundingClientRect();
           var dropW = 280;
+          var dropLeft = rect.left + (rect.width / 2) - (dropW / 2);
+          // Mantener dentro de los bordes de la ventana
+          dropLeft = Math.max(12, Math.min(dropLeft, window.innerWidth - dropW - 12));
           dropdown.style.top = (rect.bottom + 8) + 'px';
-          // Si el dropdown se saldría por la derecha, alinear al borde derecho del botón
-          var leftPos = rect.left;
-          if (leftPos + dropW > window.innerWidth - 12) {
-            leftPos = rect.right - dropW;
-          }
-          dropdown.style.left = Math.max(12, leftPos) + 'px';
+          dropdown.style.left = dropLeft + 'px';
         }
       });
     });
