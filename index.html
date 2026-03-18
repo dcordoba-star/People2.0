@@ -856,6 +856,70 @@ body {
   text-align: left;
 }
 
+/* Popup trigger en tarjetas de valores */
+.card-popup-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #FDD85E;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: var(--space-sm);
+  display: inline-block;
+  transition: opacity 0.2s;
+  text-align: left;
+}
+.card-popup-trigger:hover { opacity: 0.75; }
+
+/* Popup pequeño para valores */
+.valor-modal {
+  background: #111;
+  max-width: 360px;
+  width: 100%;
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  position: relative;
+  border: 1px solid rgba(255,213,64,0.35);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+}
+.valor-modal h4 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #FDD85E;
+  margin: 0 0 var(--space) 0;
+  padding-right: 2rem;
+}
+.valor-modal ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.93rem;
+  color: var(--color-text);
+}
+.valor-modal li { margin-bottom: 0.45rem; }
+.valor-modal .modal-cerrar {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--color-white);
+  background: var(--color-gray);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+.valor-modal .modal-cerrar:hover { background: #555; }
+
 /* Sticky Site Header */
 .site-header {
   position: sticky;
@@ -1017,54 +1081,22 @@ body {
   <div class="page-view" id="page-cultura">
     <section id="cultura" class="section">
       <div class="container">
-        <h2 class="section-title">Nuestra cultura</h2>
-        <div class="cards cards--two">
-          <article class="card card--valor">
-            <h3 class="card-title">Misión</h3>
-            <p>Nuestra misión es simplificar la relación entre las empresas y sus clientes mediante innovación continua.</p>
-          </article>
-          <article class="card card--valor">
-            <h3 class="card-title">Visión</h3>
-            <p>Ser la suite líder mundial en experiencia y relación con el cliente, pioneros en tecnología y ser reconocidos como un excelente lugar para trabajar.</p>
-          </article>
-        </div>
-
-        <h3 class="subsection-title">Valores organizacionales</h3>
+        <h2 class="section-title">Valores organizacionales</h2>
         <div class="cards cards--three cards--valores">
           <article class="card card--valor">
             <h3 class="card-title">Buena onda con propósito</h3>
             <p>Somos amables, empáticos y respetuosos. Escuchamos de verdad, nos importa el otro y nos gusta trabajar bien con los demás.</p>
-            <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
-            <ul>
-              <li>🎧 Escuchan activamente</li>
-              <li>🙌🏼 Dan feedback con respeto</li>
-              <li>🫱🏼‍🫲🏽 Ayudan aunque no se lo pidan</li>
-              <li>☕️ Crean espacios de confianza</li>
-            </ul>
+            <button class="card-popup-trigger" data-modal="modal-valor-1">Conoce aquí cómo lo vemos reflejado</button>
           </article>
           <article class="card card--valor">
             <h3 class="card-title">Clever y efectivos</h3>
             <p>Somos personas que obtienen resultados con el menor esfuerzo posible. Somos curiosas, analíticas, y obsesionadas con mejorar. Automatizamos, aprendemos y usamos la data para decidir mejor.</p>
-            <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
-            <ul>
-              <li>🔧 Proponen mejoras y definen procesos</li>
-              <li>💾 Automatizan tareas repetitivas</li>
-              <li>👾 Meten las manos en la masa y aprenden nuevas herramientas</li>
-              <li>✅ Usan datos para sustentar decisiones</li>
-              <li>🚀 Logran resultados con el menor esfuerzo posible</li>
-            </ul>
+            <button class="card-popup-trigger" data-modal="modal-valor-2">Conoce aquí cómo lo vemos reflejado</button>
           </article>
           <article class="card card--valor">
             <h3 class="card-title">Ejecutores sin excusas</h3>
             <p>Somos autónomos, nos hacemos cargo y no nos quedamos esperando. Nos gusta resolver, sumar y llegar al resultado.</p>
-            <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
-            <ul>
-              <li>🙋🏻‍♀️ Toman la iniciativa</li>
-              <li>⭐️ Resuelven sin que se lo pidan</li>
-              <li>👨🏽‍💻 Trabajan en equipo y colaboran sin traspasar problemas</li>
-              <li>🚀 Cumplen objetivos con foco en el impacto organizacional sin perder de vista las necesidades del cliente</li>
-              <li>🤩 Transmiten una ética laboral de responsabilidad y orientación al logro</li>
-            </ul>
+            <button class="card-popup-trigger" data-modal="modal-valor-3">Conoce aquí cómo lo vemos reflejado</button>
           </article>
         </div>
 
@@ -1128,6 +1160,17 @@ body {
             <p class="culture-carousel__caption"><span class="culture-carousel__caption-text" id="culture-carousel-caption">Paseo Team Chile 2026</span></p>
             <div class="culture-carousel__dots" id="culture-carousel-dots" role="tablist" aria-label="Seleccionar foto"></div>
           </div>
+        </div>
+
+        <div class="cards cards--two" style="margin-top: var(--space-xl);">
+          <article class="card card--valor">
+            <h3 class="card-title">Misión</h3>
+            <p>Nuestra misión es simplificar la relación entre las empresas y sus clientes mediante innovación continua.</p>
+          </article>
+          <article class="card card--valor">
+            <h3 class="card-title">Visión</h3>
+            <p>Ser la suite líder mundial en experiencia y relación con el cliente, pioneros en tecnología y ser reconocidos como un excelente lugar para trabajar.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -1431,6 +1474,50 @@ body {
     </div>
   </div>
 
+  <!-- Popup: Buena onda con propósito -->
+  <div id="modal-valor-1" class="modal-overlay" style="display:none;">
+    <div class="valor-modal">
+      <button class="modal-cerrar" aria-label="Cerrar">×</button>
+      <h4>Buena onda con propósito — En personas que:</h4>
+      <ul>
+        <li>🎧 Escuchan activamente</li>
+        <li>🙌🏼 Dan feedback con respeto</li>
+        <li>🫱🏼‍🫲🏽 Ayudan aunque no se lo pidan</li>
+        <li>☕️ Crean espacios de confianza</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Popup: Clever y efectivos -->
+  <div id="modal-valor-2" class="modal-overlay" style="display:none;">
+    <div class="valor-modal">
+      <button class="modal-cerrar" aria-label="Cerrar">×</button>
+      <h4>Clever y efectivos — En personas que:</h4>
+      <ul>
+        <li>🔧 Proponen mejoras y definen procesos</li>
+        <li>💾 Automatizan tareas repetitivas</li>
+        <li>👾 Meten las manos en la masa y aprenden nuevas herramientas</li>
+        <li>✅ Usan datos para sustentar decisiones</li>
+        <li>🚀 Logran resultados con el menor esfuerzo posible</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Popup: Ejecutores sin excusas -->
+  <div id="modal-valor-3" class="modal-overlay" style="display:none;">
+    <div class="valor-modal">
+      <button class="modal-cerrar" aria-label="Cerrar">×</button>
+      <h4>Ejecutores sin excusas — En personas que:</h4>
+      <ul>
+        <li>🙋🏻‍♀️ Toman la iniciativa</li>
+        <li>⭐️ Resuelven sin que se lo pidan</li>
+        <li>👨🏽‍💻 Trabajan en equipo y colaboran sin traspasar problemas</li>
+        <li>🚀 Cumplen objetivos con foco en el impacto organizacional sin perder de vista las necesidades del cliente</li>
+        <li>🤩 Transmiten una ética laboral de responsabilidad y orientación al logro</li>
+      </ul>
+    </div>
+  </div>
+
   <script>
   (function() {
     // === SPA Page Switching ===
@@ -1571,12 +1658,28 @@ body {
       });
     });
 
+    // === Popups de tarjetas de valores ===
+    document.querySelectorAll('.card-popup-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var modalId = btn.getAttribute('data-modal');
+        var modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove('cerrado');
+          modal.style.display = 'flex';
+        }
+      });
+    });
+
     // === Modal handling ===
-    document.querySelectorAll('.modal-cerrar').forEach(function(link) {
-      link.addEventListener('click', function(e) {
+    document.querySelectorAll('.modal-cerrar').forEach(function(el) {
+      el.addEventListener('click', function(e) {
         e.preventDefault();
-        var overlay = link.closest('.modal-overlay');
-        if (overlay) overlay.classList.add('cerrado');
+        var overlay = el.closest('.modal-overlay');
+        if (overlay) {
+          overlay.classList.add('cerrado');
+          overlay.style.display = 'none';
+        }
         var url = window.location.pathname + window.location.search;
         if (window.history && window.history.replaceState) {
           history.replaceState(null, document.title, url);
