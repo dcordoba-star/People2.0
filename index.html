@@ -666,6 +666,108 @@ body {
   line-height: 1.5;
 }
 
+/* Navbar */
+.hero-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-nav__link {
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.2s, opacity 0.2s;
+  white-space: nowrap;
+}
+.hero-nav__link:hover {
+  color: #FDD85E;
+}
+@media (max-width: 640px) {
+  .hero-nav {
+    gap: 1rem;
+  }
+  .hero-nav__link {
+    font-size: 0.82rem;
+  }
+}
+
+/* Modal cultura */
+.modal-cultura {
+  background: var(--color-bg);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  position: relative;
+  border: 1px solid var(--color-gray);
+}
+.modal-cultura .modal-cerrar {
+  position: absolute;
+  top: var(--space);
+  right: var(--space);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  text-decoration: none;
+  background: var(--color-gray);
+  border-radius: 50%;
+  line-height: 1;
+}
+.modal-cultura .modal-cerrar:hover { background: #555; }
+.modal-cultura .section-title {
+  margin-top: 0;
+  padding-right: 2.5rem;
+  text-align: left;
+}
+.modal-cultura .subsection-title {
+  text-align: left;
+  margin-top: var(--space-xl);
+}
+
+/* Modal beneficios */
+.modal-beneficios {
+  background: var(--color-bg);
+  max-width: 760px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  position: relative;
+  border: 1px solid var(--color-gray);
+}
+.modal-beneficios .modal-cerrar {
+  position: absolute;
+  top: var(--space);
+  right: var(--space);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  text-decoration: none;
+  background: var(--color-gray);
+  border-radius: 50%;
+  line-height: 1;
+}
+.modal-beneficios .modal-cerrar:hover { background: #555; }
+.modal-beneficios .section-title {
+  margin-top: 0;
+  padding-right: 2.5rem;
+  text-align: left;
+}
+
 /* Footer */
 .footer {
   background: #000000;
@@ -717,6 +819,11 @@ body {
       <a href="#" class="hero-logo-link" aria-label="Adereso - Inicio">
         <img src="assets/logo-adereso.png" alt="Adereso" class="h-10 w-auto object-contain block">
       </a>
+      <nav class="hero-nav" aria-label="Navegación principal">
+        <a href="#modal-vacantes" class="hero-nav__link">Vacantes</a>
+        <a href="#modal-cultura" class="hero-nav__link">Nuestra cultura</a>
+        <a href="#modal-beneficios" class="hero-nav__link">Beneficios</a>
+      </nav>
     </div>
     <div class="hero-inner">
       <div class="hero-content">
@@ -939,6 +1046,133 @@ body {
     </div>
   </footer>
 
+  <!-- Modal Nuestra cultura -->
+  <div id="modal-cultura" class="modal-overlay">
+    <div class="modal-cultura">
+      <a href="#" class="modal-cerrar" aria-label="Cerrar">×</a>
+      <h2 class="section-title">Nuestra cultura</h2>
+
+      <div class="cards cards--two" style="margin-bottom: var(--space-lg);">
+        <article class="card card--valor">
+          <h3 class="card-title">Misión</h3>
+          <p>Nuestra misión es simplificar la relación entre las empresas y sus clientes mediante innovación continua.</p>
+        </article>
+        <article class="card card--valor">
+          <h3 class="card-title">Visión</h3>
+          <p>Ser la suite líder mundial en experiencia y relación con el cliente, pioneros en tecnología y ser reconocidos como un excelente lugar para trabajar.</p>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">Valores organizacionales</h3>
+      <div class="cards cards--three cards--valores" style="margin-bottom: var(--space-lg);">
+        <article class="card card--valor">
+          <h3 class="card-title">Buena onda con propósito</h3>
+          <p>Somos amables, empáticos y respetuosos. Escuchamos de verdad, nos importa el otro y nos gusta trabajar bien con los demás.</p>
+          <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
+          <ul>
+            <li>🎧 Escuchan activamente</li>
+            <li>🙌🏼 Dan feedback con respeto</li>
+            <li>🫱🏼‍🫲🏽 Ayudan aunque no se lo pidan</li>
+            <li>☕️ Crean espacios de confianza</li>
+          </ul>
+        </article>
+        <article class="card card--valor">
+          <h3 class="card-title">Clever y efectivos</h3>
+          <p>Somos personas que obtienen resultados con el menor esfuerzo posible. Somos curiosas, analíticas, y obsesionadas con mejorar.</p>
+          <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
+          <ul>
+            <li>🔧 Proponen mejoras y definen procesos</li>
+            <li>💾 Automatizan tareas repetitivas</li>
+            <li>✅ Usan datos para sustentar decisiones</li>
+            <li>🚀 Logran resultados con el menor esfuerzo posible</li>
+          </ul>
+        </article>
+        <article class="card card--valor">
+          <h3 class="card-title">Ejecutores sin excusas</h3>
+          <p>Somos autónomos, nos hacemos cargo y no nos quedamos esperando. Nos gusta resolver, sumar y llegar al resultado.</p>
+          <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
+          <ul>
+            <li>🙋🏻‍♀️ Toman la iniciativa</li>
+            <li>⭐️ Resuelven sin que se lo pidan</li>
+            <li>🤩 Transmiten responsabilidad y orientación al logro</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">Virtudes de nuestra cultura</h3>
+      <div class="cards cards--virtues">
+        <article class="card">
+          <h3 class="card-title">Asumimos siempre la mejor intención</h3>
+          <p>Preferimos <strong>confiar antes que desconfiar</strong>. No asumimos intencionalidad.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">No a lo repetitivo</h3>
+          <p>Si algo se repite más de dos veces, <strong>lo automatizamos</strong>.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Lo perfecto es enemigo de lo bueno</h3>
+          <p>No nos quedamos pegados buscando el ideal. <strong>Avanzamos y entregamos valor</strong> de manera ágil.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Mejor pedir perdón que pedir permiso</h3>
+          <p>Tomamos decisiones con criterio. <strong>No todo necesita aprobación previa</strong>.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Todos podemos crear software con IA</h3>
+          <p>Creemos en el <strong>aprendizaje continuo</strong> y en empoderar a todos con tecnología.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Feedback siempre, radical candor</h3>
+          <p>Nos decimos las cosas, incluso las difíciles, <strong>siempre con empatía</strong>.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Beneficios -->
+  <div id="modal-beneficios" class="modal-overlay">
+    <div class="modal-beneficios">
+      <a href="#" class="modal-cerrar" aria-label="Cerrar">×</a>
+      <h2 class="section-title">Beneficios</h2>
+      <div class="cards cards--three cards--valores">
+        <article class="card card--valor">
+          <h3 class="card-title">Chile</h3>
+          <ul>
+            <li>15 días extras administrativos al año</li>
+            <li>Trabajo híbrido</li>
+            <li>Flexibilidad horaria</li>
+            <li>Medio día de descanso por cumpleaños</li>
+            <li>Capacitación continua con Platzi</li>
+            <li>Seguro complementario de Salud + Dental (BICE VIDA)</li>
+            <li>Se pagan los 3 primeros días de licencia</li>
+            <li>Aguinaldo Fiestas Patrias (75.000)</li>
+            <li>Aguinaldo Navidad (135.000)</li>
+          </ul>
+        </article>
+        <article class="card card--valor">
+          <h3 class="card-title">México</h3>
+          <ul>
+            <li>18 días extra administrativos al año</li>
+            <li>Medio día de descanso por cumpleaños y detallito para endulzar tu día</li>
+            <li>Capacitación continua con Platzi &amp; Masterclass</li>
+            <li>Seguro de gastos médicos mayores (Kalmy)</li>
+            <li>30 días de aguinaldo en total (15 obligatorio + 15 adicionales)</li>
+          </ul>
+        </article>
+        <article class="card card--valor">
+          <h3 class="card-title">Global</h3>
+          <ul>
+            <li>15 días administrativos al año</li>
+            <li>Medio día de descanso por cumpleaños</li>
+            <li>Capacitación continua con Platzi</li>
+            <li>Aguinaldo Navidad (150 USD)</li>
+            <li>Aguinaldo Festivos (78 USD)</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal Únete al equipo (se abre al hacer clic en "Ver vacantes" del hero) -->
   <div id="modal-unete" class="modal-overlay">
     <div class="modal-unete">
@@ -1113,7 +1347,7 @@ body {
     });
 
     // Al abrir un modal: quitar clase cerrado y mantener scroll
-    document.querySelectorAll('a[href^="#modal-"]').forEach(function(link) {
+    document.querySelectorAll('a[href^="#modal-"], .hero-nav__link[href^="#modal-"]').forEach(function(link) {
       link.addEventListener('click', function(e) {
         var hash = link.getAttribute('href');
         if (!hash || hash === '#') return;
