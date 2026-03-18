@@ -718,15 +718,13 @@ body {
 /* Dropdown */
 .hero-nav__dropdown {
   display: none;
-  position: absolute;
-  top: calc(100% + 1rem);
-  left: 0;
+  position: fixed;
   background: #111111;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 0.5rem;
   min-width: 280px;
-  z-index: 900;
+  z-index: 9000;
   box-shadow: 0 12px 40px rgba(0,0,0,0.55);
 }
 .hero-nav__item.open .hero-nav__dropdown {
@@ -1631,11 +1629,12 @@ body {
       armTimer();
     }
 
-    // === Dropdown nav toggle ===
+    // === Dropdown nav toggle (position: fixed para no afectar layout) ===
     var navItems = document.querySelectorAll('.hero-nav__item');
     navItems.forEach(function(item) {
       var toggle = item.querySelector('.hero-nav__toggle');
-      if (!toggle) return;
+      var dropdown = item.querySelector('.hero-nav__dropdown');
+      if (!toggle || !dropdown) return;
       toggle.addEventListener('click', function(e) {
         e.stopPropagation();
         var isOpen = item.classList.contains('open');
@@ -1647,6 +1646,10 @@ body {
         if (!isOpen) {
           item.classList.add('open');
           toggle.setAttribute('aria-expanded', 'true');
+          // Posicionar el dropdown anclado al botón usando coordenadas del viewport
+          var rect = toggle.getBoundingClientRect();
+          dropdown.style.top = (rect.bottom + 8) + 'px';
+          dropdown.style.left = rect.left + 'px';
         }
       });
     });
