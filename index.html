@@ -856,6 +856,58 @@ body {
   text-align: left;
 }
 
+/* Sticky Site Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: #000000;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.site-header__inner {
+  max-width: var(--max-width-hero);
+  margin: 0 auto;
+  padding: 0.875rem var(--space);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* SPA Page Views */
+.page-view {
+  display: none;
+}
+.page-view.active {
+  display: block;
+  animation: pageIn 0.25s ease;
+}
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Home hero section */
+.hero-section {
+  background: #000000;
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-xl) var(--space);
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+}
+.hero-section .hero-inner {
+  width: 100%;
+}
+
+/* Active nav link */
+.hero-nav__link.nav-active {
+  color: #FDD85E;
+}
+.hero-nav__toggle.nav-active {
+  color: #FDD85E;
+}
+
 /* Footer */
 .footer {
   background: #000000;
@@ -901,20 +953,57 @@ body {
   </style>
 </head>
 <body>
-  <!-- Hero principal (inicio) -->
-  <header class="hero">
-    <div class="hero-top">
-      <a href="#" class="hero-logo-link" aria-label="Adereso - Inicio">
+  <!-- Site Header (sticky) -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="#" class="hero-logo-link" aria-label="Adereso - Inicio" data-page="home">
         <img src="assets/logo-adereso.png" alt="Adereso" class="h-10 w-auto object-contain block">
       </a>
       <nav class="hero-nav" aria-label="Navegación principal">
-        <!-- Únete al equipo con dropdown -->
+        <!-- People dropdown -->
+        <div class="hero-nav__item">
+          <button type="button" class="hero-nav__toggle" aria-expanded="false" aria-haspopup="true">
+            People <span class="hero-nav__arrow">▼</span>
+          </button>
+          <div class="hero-nav__dropdown" role="menu">
+            <a href="#" class="hero-nav__dropdown-item" data-page="unete" role="menuitem">
+              <span class="hero-nav__dropdown-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span>
+                <span class="hero-nav__dropdown-title">Únete al equipo</span>
+                <span class="hero-nav__dropdown-desc">Vacantes y proceso de selección</span>
+              </span>
+            </a>
+            <hr class="hero-nav__dropdown-sep">
+            <a href="#" class="hero-nav__dropdown-item" data-page="cultura" role="menuitem">
+              <span class="hero-nav__dropdown-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+              <span>
+                <span class="hero-nav__dropdown-title">Nuestra cultura</span>
+                <span class="hero-nav__dropdown-desc">Valores, misión y virtudes</span>
+              </span>
+            </a>
+            <hr class="hero-nav__dropdown-sep">
+            <a href="#" class="hero-nav__dropdown-item" data-page="beneficios" role="menuitem">
+              <span class="hero-nav__dropdown-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              </span>
+              <span>
+                <span class="hero-nav__dropdown-title">Beneficios</span>
+                <span class="hero-nav__dropdown-desc">Chile, México y Global</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- Únete al equipo dropdown -->
         <div class="hero-nav__item">
           <button type="button" class="hero-nav__toggle" aria-expanded="false" aria-haspopup="true">
             Únete al equipo <span class="hero-nav__arrow">▼</span>
           </button>
           <div class="hero-nav__dropdown" role="menu">
-            <a href="#unete" class="hero-nav__dropdown-item" role="menuitem">
+            <a href="#" class="hero-nav__dropdown-item" data-page="unete" role="menuitem">
               <span class="hero-nav__dropdown-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
               </span>
@@ -924,7 +1013,7 @@ body {
               </span>
             </a>
             <hr class="hero-nav__dropdown-sep">
-            <a href="#proceso" class="hero-nav__dropdown-item" role="menuitem">
+            <a href="#" class="hero-nav__dropdown-item" data-page="unete" role="menuitem">
               <span class="hero-nav__dropdown-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </span>
@@ -935,24 +1024,30 @@ body {
             </a>
           </div>
         </div>
-        <a href="#cultura" class="hero-nav__link">Nuestra cultura</a>
-        <a href="#beneficios" class="hero-nav__link">Beneficios</a>
+        <a href="#" class="hero-nav__link" data-page="cultura">Nuestra cultura</a>
+        <a href="#" class="hero-nav__link" data-page="beneficios">Beneficios</a>
       </nav>
-    </div>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <h1 class="hero-title">Construimos el futuro de la experiencia del cliente</h1>
-        <p class="hero-desc">Únete a un equipo que combina tecnología, cultura y ejecución real</p>
-        <div class="hero-ctas">
-          <a href="#unete" class="btn btn--primary">Ver vacantes</a>
-          <a href="#cultura" class="btn btn--secondary">Conoce nuestra cultura</a>
-        </div>
-      </div>
     </div>
   </header>
 
-  <main>
-    <!-- 4. Nuestra cultura -->
+  <!-- Page: Home -->
+  <div class="page-view active" id="page-home">
+    <section class="hero-section">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1 class="hero-title">Construimos el futuro de la experiencia del cliente</h1>
+          <p class="hero-desc">Únete a un equipo que combina tecnología, cultura y ejecución real</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn btn--primary" data-page="unete">Ver vacantes</a>
+            <a href="#" class="btn btn--secondary" data-page="cultura">Conoce nuestra cultura</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Page: Nuestra cultura -->
+  <div class="page-view" id="page-cultura">
     <section id="cultura" class="section">
       <div class="container">
         <h2 class="section-title">Nuestra cultura</h2>
@@ -1069,8 +1164,10 @@ body {
         </div>
       </div>
     </section>
+  </div>
 
-    <!-- 5. Beneficios -->
+  <!-- Page: Beneficios -->
+  <div class="page-view" id="page-beneficios">
     <section id="beneficios" class="section section--alt">
       <div class="container">
         <h2 class="section-title">Beneficios</h2>
@@ -1112,8 +1209,10 @@ body {
         </div>
       </div>
     </section>
+  </div>
 
-    <!-- Únete al equipo (debajo de Beneficios) -->
+  <!-- Page: Únete al equipo -->
+  <div class="page-view" id="page-unete">
     <section id="unete" class="section">
       <div class="container">
         <h2 class="section-title">Únete al equipo</h2>
@@ -1152,7 +1251,7 @@ body {
         </div>
       </div>
     </section>
-  </main>
+  </div>
 
   <footer class="footer">
     <div class="container">
@@ -1367,6 +1466,37 @@ body {
 
   <script>
   (function() {
+    // === SPA Page Switching ===
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-view').forEach(function(p) {
+        p.classList.remove('active');
+      });
+      var page = document.getElementById('page-' + pageId);
+      if (page) {
+        page.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+      document.querySelectorAll('.hero-nav__link[data-page]').forEach(function(el) {
+        el.classList.toggle('nav-active', el.getAttribute('data-page') === pageId);
+      });
+      if (pageId === 'cultura' && window.__carouselReInit) {
+        requestAnimationFrame(window.__carouselReInit);
+      }
+    }
+
+    document.querySelectorAll('[data-page]').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        switchPage(el.getAttribute('data-page'));
+        document.querySelectorAll('.hero-nav__item').forEach(function(item) {
+          item.classList.remove('open');
+          var t = item.querySelector('.hero-nav__toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+
+    // === Carousel ===
     var root = document.getElementById('culture-carousel');
     if (root) {
       var viewport = root.querySelector('.culture-carousel__viewport');
@@ -1436,21 +1566,50 @@ body {
         }, 100);
       });
 
-      requestAnimationFrame(function() {
+      // Expose re-init for SPA navigation
+      window.__carouselReInit = function() {
         layoutSlides();
-        go(0);
-        armTimer();
-      });
+        go(i);
+        if (!timer) armTimer();
+      };
+
+      go(0);
+      armTimer();
     }
 
-    // Cerrar modal al hacer clic en la X (sin mover el scroll)
+    // === Dropdown nav toggle ===
+    var navItems = document.querySelectorAll('.hero-nav__item');
+    navItems.forEach(function(item) {
+      var toggle = item.querySelector('.hero-nav__toggle');
+      if (!toggle) return;
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = item.classList.contains('open');
+        navItems.forEach(function(ni) {
+          ni.classList.remove('open');
+          var t = ni.querySelector('.hero-nav__toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    document.addEventListener('click', function() {
+      navItems.forEach(function(ni) {
+        ni.classList.remove('open');
+        var t = ni.querySelector('.hero-nav__toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // === Modal handling ===
     document.querySelectorAll('.modal-cerrar').forEach(function(link) {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         var overlay = link.closest('.modal-overlay');
-        if (overlay) {
-          overlay.classList.add('cerrado');
-        }
+        if (overlay) overlay.classList.add('cerrado');
         var url = window.location.pathname + window.location.search;
         if (window.history && window.history.replaceState) {
           history.replaceState(null, document.title, url);
@@ -1460,37 +1619,6 @@ body {
       });
     });
 
-    // Dropdown nav toggle
-    var navItems = document.querySelectorAll('.hero-nav__item');
-    navItems.forEach(function(item) {
-      var toggle = item.querySelector('.hero-nav__toggle');
-      if (!toggle) return;
-      toggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var isOpen = item.classList.contains('open');
-        navItems.forEach(function(i) { i.classList.remove('open'); });
-        if (!isOpen) {
-          item.classList.add('open');
-          toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-    document.addEventListener('click', function() {
-      navItems.forEach(function(i) {
-        i.classList.remove('open');
-        var t = i.querySelector('.hero-nav__toggle');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      });
-    });
-    document.querySelectorAll('.hero-nav__dropdown-item').forEach(function(link) {
-      link.addEventListener('click', function() {
-        navItems.forEach(function(i) { i.classList.remove('open'); });
-      });
-    });
-
-    // Al abrir un modal: quitar clase cerrado y mantener scroll
     document.querySelectorAll('a[href^="#modal-"]').forEach(function(link) {
       link.addEventListener('click', function(e) {
         var hash = link.getAttribute('href');
