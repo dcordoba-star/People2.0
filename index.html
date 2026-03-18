@@ -1646,14 +1646,29 @@ body {
         if (!isOpen) {
           item.classList.add('open');
           toggle.setAttribute('aria-expanded', 'true');
-          // Posicionar el dropdown anclado al botón usando coordenadas del viewport
+          // Posicionar el dropdown anclado al botón (alineado al borde derecho)
           var rect = toggle.getBoundingClientRect();
+          var dropW = 280;
           dropdown.style.top = (rect.bottom + 8) + 'px';
-          dropdown.style.left = rect.left + 'px';
+          // Si el dropdown se saldría por la derecha, alinear al borde derecho del botón
+          var leftPos = rect.left;
+          if (leftPos + dropW > window.innerWidth - 12) {
+            leftPos = rect.right - dropW;
+          }
+          dropdown.style.left = Math.max(12, leftPos) + 'px';
         }
       });
     });
     document.addEventListener('click', function() {
+      navItems.forEach(function(ni) {
+        ni.classList.remove('open');
+        var t = ni.querySelector('.hero-nav__toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Re-posicionar dropdowns si cambia el tamaño de la ventana
+    window.addEventListener('resize', function() {
       navItems.forEach(function(ni) {
         ni.classList.remove('open');
         var t = ni.querySelector('.hero-nav__toggle');
