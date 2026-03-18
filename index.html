@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People & Careers | Únete al equipo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* Variables: paleta y espaciado */
+:root {
+  --color-white: #FFFFFF;
+  --color-gray: #676767;
+  --color-yellow: #FFD540;
+  --color-bg: #000000;
+  --color-bg-alt: #000000;
+  --color-text: #b0b0b0;
+  --color-text-strong: #e0e0e0;
+  --font-title: "Outfit", sans-serif;
+  --font-body: "Work Sans", sans-serif;
+  --radius: 10px;
+  --space-sm: 0.75rem;
+  --space: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --max-width: 1000px;
+  --max-width-hero: 1280px;
+  --max-width-hero-text: 850px;
+}
+
+/* Reset y base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* Contenedor */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+
+/* 1. Hero */
+.hero {
+  background: #000000;
+  background-color: #000000;
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-xl) var(--space) var(--space-xl);
+}
+
+.hero-top {
+  max-width: var(--max-width-hero);
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.h-10 { height: 2.5rem; }
+.w-auto { width: auto; }
+.object-contain { object-fit: contain; }
+.block { display: block; }
+.hero-inner {
+  max-width: var(--max-width-hero);
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+.hero-content {
+  max-width: var(--max-width-hero-text);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-sm);
+  line-height: 1.2;
+  color: #FFFFFF;
+}
+
+.hero-desc {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  margin: 0 0 var(--space-lg);
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.95;
+  color: #C4C4C4;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn--primary {
+  background: #FDD85E;
+  color: #000000;
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 216, 94, 0.35);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+}
+
+.btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space);
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+/* Secciones */
+.section {
+  padding: var(--space-xl) 0;
+  background: var(--color-bg);
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 0 var(--space-lg);
+}
+
+#sobre-nosotros .section-title {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.text-yellow {
+  color: #FFD540;
+}
+
+.subsection-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  margin: var(--space-xl) 0 var(--space);
+  text-align: center;
+}
+
+.subsection-title:first-of-type {
+  margin-top: var(--space-lg);
+}
+
+.subsection-title--manifesto {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Virtudes: bloques tipo manifiesto */
+.cards--virtues .card {
+  border-left: 4px solid #FFD540;
+}
+.cards--virtues .card .card-title {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+}
+.cards--virtues .card p {
+  font-family: "Work Sans", sans-serif;
+}
+.cards--virtues .card strong,
+.cards--virtues .card b {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+}
+
+/* Galería cultura — carrusel automático */
+.culture-gallery-wrap {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.culture-gallery-title {
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FDD85E;
+  margin: 0 0 var(--space);
+  text-align: center;
+}
+.culture-carousel {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.culture-carousel__frame {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.culture-carousel__arrow {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.culture-carousel__arrow:hover {
+  background: rgba(253, 216, 94, 0.15);
+  border-color: #FDD85E;
+  color: #FDD85E;
+}
+.culture-carousel__viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 280px;
+  max-height: min(420px, 55vh);
+}
+.culture-carousel__track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  height: 100%;
+}
+.culture-carousel__slide {
+  flex-shrink: 0;
+  min-height: 280px;
+  max-height: min(420px, 55vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.culture-carousel__slide img {
+  max-width: 100%;
+  max-height: min(380px, 50vh);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.culture-carousel__caption {
+  text-align: center;
+  margin-top: var(--space-sm);
+  min-height: 1.5rem;
+}
+.culture-carousel__caption-text {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #b0b0b0;
+  letter-spacing: 0.06em;
+}
+.culture-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: var(--space);
+}
+.culture-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.culture-carousel__dot[aria-current="true"] {
+  background: #FDD85E;
+  transform: scale(1.15);
+}
+@media (max-width: 520px) {
+  .culture-carousel__arrow {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
+  .culture-carousel__viewport,
+  .culture-carousel__slide {
+    min-height: 220px;
+    max-height: 320px;
+  }
+  .culture-carousel__slide img {
+    max-height: 280px;
+  }
+}
+
+.intro-text {
+  font-family: "Work Sans", sans-serif;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+/* Tarjetas: fondo blanco 12% opacidad, borde #676767 */
+.cards {
+  display: grid;
+  gap: var(--space);
+  margin: 0;
+}
+
+.cards--two {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cards--three {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cards--virtues {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--color-gray);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  margin: 0 0 var(--space-sm);
+}
+
+.card p {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.card-subtitle {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  margin: var(--space) 0 var(--space-sm);
+}
+
+.card ul {
+  margin: 0 0 var(--space-sm);
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.card li {
+  margin-bottom: 0.4rem;
+}
+
+/* Valores organizacionales: 3 cols desktop, 1 col mobile */
+.cards--valores {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .cards--valores {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Valores: íconos amarillos, títulos Outfit Bold, texto Work Sans */
+.card--valor .card-title {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+}
+.card--valor .card-title::before {
+  content: "◆ ";
+  color: #FFD540;
+}
+.card--valor p,
+.card--valor .card-subtitle,
+.card--valor .card ul,
+.card--valor .card li {
+  font-family: "Work Sans", sans-serif;
+}
+
+.card-link {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #FDD85E;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: var(--space-sm);
+  border-bottom: 1px solid #FDD85E;
+  transition: color 0.2s;
+}
+
+.card-link:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* Listado de vacantes */
+.vacantes-lista {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.cards--vacantes {
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+.vacancy-card .card-title::before {
+  display: none;
+}
+.vacancy-meta {
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.95rem;
+  color: var(--color-yellow);
+  margin: 0 0 var(--space) !important;
+}
+.btn--small {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* Modal vacantes */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space);
+  box-sizing: border-box;
+}
+.modal-overlay:target {
+  display: flex;
+}
+.modal-overlay.cerrado {
+  display: none !important;
+}
+.modal-vacantes {
+  background: var(--color-bg);
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  position: relative;
+  border: 1px solid var(--color-gray);
+}
+.modal-vacantes .modal-cerrar {
+  position: absolute;
+  top: var(--space);
+  right: var(--space);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  text-decoration: none;
+  background: var(--color-gray);
+  border-radius: 50%;
+  line-height: 1;
+}
+.modal-vacantes .modal-cerrar:hover {
+  background: #555;
+}
+.modal-vacantes .subsection-title {
+  margin-top: 0;
+  padding-right: 2.5rem;
+}
+
+/* Modal Únete al equipo */
+.modal-unete {
+  background: var(--color-bg);
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  position: relative;
+  border: 1px solid var(--color-gray);
+}
+.modal-unete .modal-cerrar {
+  position: absolute;
+  top: var(--space);
+  right: var(--space);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  text-decoration: none;
+  background: var(--color-gray);
+  border-radius: 50%;
+  line-height: 1;
+}
+.modal-unete .modal-cerrar:hover {
+  background: #555;
+}
+.modal-unete .subsection-title {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  padding-right: 2.5rem;
+}
+.modal-unete .cards {
+  display: grid;
+  gap: var(--space);
+  grid-template-columns: 1fr;
+}
+
+/* Modal proceso de selección (timeline) */
+.modal-proceso {
+  background: var(--color-bg);
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  position: relative;
+  border: 1px solid var(--color-gray);
+}
+.modal-proceso .modal-cerrar {
+  position: absolute;
+  top: var(--space);
+  right: var(--space);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  text-decoration: none;
+  background: var(--color-gray);
+  border-radius: 50%;
+  line-height: 1;
+}
+.modal-proceso .modal-cerrar:hover {
+  background: #555;
+}
+.modal-proceso .subsection-title {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  padding-right: 2.5rem;
+}
+.modal-proceso-intro {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0 0 var(--space-lg);
+  padding-right: 2.5rem;
+}
+.modal-proceso-outro {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: var(--space-lg) 0 0;
+  padding-right: 2.5rem;
+  padding-top: var(--space);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space);
+  padding: var(--space) 0;
+  border-left: 3px solid #FFD540;
+  margin-left: 1.25rem;
+  padding-left: var(--space-lg);
+  position: relative;
+}
+.timeline-step:not(:last-child) {
+  border-left-color: rgba(255, 213, 64, 0.4);
+}
+.timeline-step::before {
+  content: attr(data-num);
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: #FFD540;
+  color: #1a1a1a;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5rem;
+  top: var(--space);
+}
+.timeline-step .step-label {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1rem;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  background: #000000;
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-lg) var(--space);
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Responsive: móvil */
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--space-lg) var(--space);
+  }
+
+  .section {
+    padding: var(--space-lg) 0;
+  }
+
+  .container {
+    padding: 0 var(--space);
+  }
+
+  .cards--two,
+  .cards--three,
+  .cards--virtues {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: var(--space);
+  }
+
+  .subsection-title {
+    margin-top: var(--space-lg);
+    font-size: 1.1rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Hero principal (inicio) -->
+  <header class="hero">
+    <div class="hero-top">
+      <a href="#" class="hero-logo-link" aria-label="Adereso - Inicio">
+        <img src="assets/logo-adereso.png" alt="Adereso" class="h-10 w-auto object-contain block">
+      </a>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-title">Construimos el futuro de la experiencia del cliente</h1>
+        <p class="hero-desc">Únete a un equipo que combina tecnología, cultura y ejecución real</p>
+        <div class="hero-ctas">
+          <a href="#unete" class="btn btn--primary">Ver vacantes</a>
+          <a href="#cultura" class="btn btn--secondary">Conoce nuestra cultura</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 4. Nuestra cultura -->
+    <section id="cultura" class="section">
+      <div class="container">
+        <h2 class="section-title">Nuestra cultura</h2>
+        <div class="cards cards--two">
+          <article class="card card--valor">
+            <h3 class="card-title">Misión</h3>
+            <p>Nuestra misión es simplificar la relación entre las empresas y sus clientes mediante innovación continua.</p>
+          </article>
+          <article class="card card--valor">
+            <h3 class="card-title">Visión</h3>
+            <p>Ser la suite líder mundial en experiencia y relación con el cliente, pioneros en tecnología y ser reconocidos como un excelente lugar para trabajar.</p>
+          </article>
+        </div>
+
+        <h3 class="subsection-title">Valores organizacionales</h3>
+        <div class="cards cards--three cards--valores">
+          <article class="card card--valor">
+            <h3 class="card-title">Buena onda con propósito</h3>
+            <p>Somos amables, empáticos y respetuosos. Escuchamos de verdad, nos importa el otro y nos gusta trabajar bien con los demás.</p>
+            <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
+            <ul>
+              <li>🎧 Escuchan activamente</li>
+              <li>🙌🏼 Dan feedback con respeto</li>
+              <li>🫱🏼‍🫲🏽 Ayudan aunque no se lo pidan</li>
+              <li>☕️ Crean espacios de confianza</li>
+            </ul>
+          </article>
+          <article class="card card--valor">
+            <h3 class="card-title">Clever y efectivos</h3>
+            <p>Somos personas que obtienen resultados con el menor esfuerzo posible. Somos curiosas, analíticas, y obsesionadas con mejorar. Automatizamos, aprendemos y usamos la data para decidir mejor.</p>
+            <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
+            <ul>
+              <li>🔧 Proponen mejoras y definen procesos</li>
+              <li>💾 Automatizan tareas repetitivas</li>
+              <li>👾 Meten las manos en la masa y aprenden nuevas herramientas</li>
+              <li>✅ Usan datos para sustentar decisiones</li>
+              <li>🚀 Logran resultados con el menor esfuerzo posible</li>
+            </ul>
+          </article>
+          <article class="card card--valor">
+            <h3 class="card-title">Ejecutores sin excusas</h3>
+            <p>Somos autónomos, nos hacemos cargo y no nos quedamos esperando. Nos gusta resolver, sumar y llegar al resultado.</p>
+            <p class="card-subtitle">¿Cómo vemos reflejado este pilar? En personas que:</p>
+            <ul>
+              <li>🙋🏻‍♀️ Toman la iniciativa</li>
+              <li>⭐️ Resuelven sin que se lo pidan</li>
+              <li>👨🏽‍💻 Trabajan en equipo y colaboran sin traspasar problemas</li>
+              <li>🚀 Cumplen objetivos con foco en el impacto organizacional sin perder de vista las necesidades del cliente</li>
+              <li>🤩 Transmiten una ética laboral de responsabilidad y orientación al logro</li>
+            </ul>
+          </article>
+        </div>
+
+        <h3 class="subsection-title">Virtudes de nuestra cultura</h3>
+        <div class="cards cards--virtues">
+          <article class="card">
+            <h3 class="card-title">Asumimos siempre la mejor intención</h3>
+            <p>Preferimos <strong>confiar antes que desconfiar</strong>. No asumimos intencionalidad.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">No a lo repetitivo</h3>
+            <p>Si algo se repite más de dos veces, <strong>lo automatizamos</strong>.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Lo perfecto es enemigo de lo bueno</h3>
+            <p>No nos quedamos pegados buscando el ideal. <strong>Avanzamos y entregamos valor</strong> de manera ágil.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Mejor pedir perdón que pedir permiso</h3>
+            <p>Tomamos decisiones con criterio. <strong>No todo necesita aprobación previa</strong>.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Todos podemos crear software con IA</h3>
+            <p>Creemos en el <strong>aprendizaje continuo</strong> y en empoderar a todos con tecnología.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Feedback siempre, radical candor</h3>
+            <p>Nos decimos las cosas, incluso las difíciles, <strong>siempre con empatía</strong>.</p>
+          </article>
+        </div>
+
+        <div class="culture-gallery-wrap">
+          <p class="culture-gallery-title">Así somos</p>
+          <div class="culture-carousel" id="culture-carousel" role="region" aria-roledescription="carrusel" aria-label="Galería del equipo">
+            <div class="culture-carousel__frame">
+              <button type="button" class="culture-carousel__arrow culture-carousel__arrow--prev" aria-label="Foto anterior">‹</button>
+              <div class="culture-carousel__viewport">
+                <div class="culture-carousel__track">
+                  <div class="culture-carousel__slide" data-caption="Paseo Team Chile 2026">
+                    <img src="assets/gallery-1.png" alt="Paseo Team Chile 2026" loading="eager" decoding="async" width="800" height="600">
+                  </div>
+                  <div class="culture-carousel__slide" data-caption="Paseo Team Colombia 2025">
+                    <img src="assets/gallery-2.png" alt="Paseo Team Colombia 2025" loading="lazy" decoding="async" width="800" height="600">
+                  </div>
+                  <div class="culture-carousel__slide" data-caption="Halloween Virtual 2025">
+                    <img src="assets/gallery-fiesta.png" alt="Halloween Virtual 2025" loading="lazy" decoding="async" width="800" height="600">
+                  </div>
+                  <div class="culture-carousel__slide" data-caption="Halloween Ofi 2025">
+                    <img src="assets/gallery-halloween-ofi-2025.png" alt="Halloween Ofi 2025" loading="lazy" decoding="async" width="800" height="600">
+                  </div>
+                  <div class="culture-carousel__slide" data-caption="Sesión Suelta tu chisme">
+                    <img src="assets/gallery-suelta-chisme.png" alt="Sesión Suelta tu chisme" loading="lazy" decoding="async" width="1200" height="800">
+                  </div>
+                  <div class="culture-carousel__slide" data-caption="Halloween Virtual 2021">
+                    <img src="assets/gallery-meet.png" alt="Halloween Virtual 2021" loading="lazy" decoding="async" width="1200" height="800">
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="culture-carousel__arrow culture-carousel__arrow--next" aria-label="Siguiente foto">›</button>
+            </div>
+            <p class="culture-carousel__caption"><span class="culture-carousel__caption-text" id="culture-carousel-caption">Paseo Team Chile 2026</span></p>
+            <div class="culture-carousel__dots" id="culture-carousel-dots" role="tablist" aria-label="Seleccionar foto"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Beneficios -->
+    <section id="beneficios" class="section section--alt">
+      <div class="container">
+        <h2 class="section-title">Beneficios</h2>
+        <div class="cards cards--three">
+          <article class="card card--valor">
+            <h3 class="card-title">Chile</h3>
+            <ul>
+              <li>15 días extras administrativos al año</li>
+              <li>Trabajo híbrido</li>
+              <li>Flexibilidad horaria</li>
+              <li>Medio día de descanso por cumpleaños</li>
+              <li>Capacitación continua con Platzi</li>
+              <li>Seguro complementario de Salud + Dental (BICE VIDA)</li>
+              <li>Se pagan los 3 primeros días de licencia</li>
+              <li>Aguinaldo Fiestas Patrias (75.000)</li>
+              <li>Aguinaldo Navidad (135.000)</li>
+            </ul>
+          </article>
+          <article class="card card--valor">
+            <h3 class="card-title">México</h3>
+            <ul>
+              <li>18 días extra administrativos al año</li>
+              <li>Medio día de descanso por cumpleaños y te mandamos un detallito para endulzar tu día</li>
+              <li>Capacitación continua con Platzi & Masterclass</li>
+              <li>Seguro de gastos médicos mayores (Kalmy)</li>
+              <li>30 días de aguinaldo en total (15 obligatorio + 15 adicionales)</li>
+            </ul>
+          </article>
+          <article class="card card--valor">
+            <h3 class="card-title">Global</h3>
+            <ul>
+              <li>15 días administrativos al año</li>
+              <li>Medio día de descanso por cumpleaños</li>
+              <li>Capacitación continua con Platzi</li>
+              <li>Aguinaldo Navidad (150 USD)</li>
+              <li>Aguinaldo Festivos (78 USD)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Únete al equipo (debajo de Beneficios) -->
+    <section id="unete" class="section">
+      <div class="container">
+        <h2 class="section-title">Únete al equipo</h2>
+        <div class="cards">
+          <article class="card">
+            <h3 class="card-title">Vacantes abiertas</h3>
+            <p>Revisa las posiciones disponibles y postula.</p>
+            <a href="#modal-vacantes" class="card-link">Ver vacantes →</a>
+          </article>
+          <article id="proceso" class="card">
+            <h3 class="card-title">Proceso de selección</h3>
+            <p>Conoce las etapas y qué esperar en cada una.</p>
+            <a href="#modal-proceso" class="card-link">Saber más →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Handbook -->
+    <section id="handbook" class="section">
+      <div class="container">
+        <h2 class="section-title">Handbook</h2>
+        <div class="cards cards--three">
+          <article class="card">
+            <h3 class="card-title">Cómo trabajamos</h3>
+            <p>Metodología y ritmo de trabajo. [Editable]</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Onboarding</h3>
+            <p>Primeros pasos al unirte. [Editable]</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Herramientas que usamos</h3>
+            <p>Stack y apps del día a día. [Editable]</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 People & Careers.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Únete al equipo (se abre al hacer clic en "Ver vacantes" del hero) -->
+  <div id="modal-unete" class="modal-overlay">
+    <div class="modal-unete">
+      <a href="#" class="modal-cerrar" aria-label="Cerrar">×</a>
+      <h2 class="section-title">Únete al equipo</h2>
+      <div class="cards">
+        <article class="card">
+          <h3 class="card-title">Vacantes abiertas</h3>
+          <p>Revisa las posiciones disponibles y postula.</p>
+          <a href="#modal-vacantes" class="card-link">Ver vacantes →</a>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Proceso de selección</h3>
+          <p>Conoce las etapas y qué esperar en cada una.</p>
+          <a href="#modal-proceso" class="card-link">Saber más →</a>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal vacantes (se abre al hacer clic en "Ver vacantes") -->
+  <div id="modal-vacantes" class="modal-overlay">
+    <div class="modal-vacantes">
+      <a href="#" class="modal-cerrar" aria-label="Cerrar">×</a>
+      <h3 class="subsection-title">Posiciones abiertas</h3>
+      <div class="cards cards--vacantes">
+        <article class="card vacancy-card">
+          <h3 class="card-title">🔐 Analista de Seguridad de la Información</h3>
+          <p>Serás responsable de operar, mantener y evolucionar nuestro SGSI, asegurando el cumplimiento de estándares como ISO 27001 y liderando el roadmap hacia SOC 2 y CAS, alineando la seguridad con producto, tecnología y crecimiento.</p>
+          <p class="vacancy-meta">📍 Ubicación: Santiago de Chile</p>
+          <a href="https://shorturl.at/LKS3e" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--small">Postula aquí</a>
+        </article>
+        <article class="card vacancy-card">
+          <h3 class="card-title">🤝 Key Account Manager</h3>
+          <p>Para quien disfrute construir relaciones estratégicas y generar crecimiento sostenible en clientes B2B. Serás responsable de gestionar y expandir cuentas existentes, impulsando el ARR mediante estrategias de upsell y cross-sell, asegurando renovaciones exitosas y reduciendo el churn a través de una gestión consultiva y orientada a resultados. Se espera que integres herramientas de inteligencia artificial en tu gestión comercial para optimizar procesos, analizar datos y potenciar la toma de decisiones.</p>
+          <p class="vacancy-meta">📍 Ubicación: Santiago de Chile</p>
+          <a href="https://shorturl.at/1b2j0" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--small">Postula aquí</a>
+        </article>
+        <article class="card vacancy-card">
+          <h3 class="card-title">✨ Customer Success Manager</h3>
+          <p>Una oportunidad para quienes disfrutan acompañar a los clientes en su crecimiento y convertirse en un socio estratégico en su día a día. Serás responsable de impulsar la retención y expansión de tu cartera, asegurando una adopción exitosa de nuestros productos, fortaleciendo relaciones de confianza y generando impacto a través de planes de éxito personalizados. Se espera que utilices herramientas de inteligencia artificial para mejorar la eficiencia operativa, anticipar necesidades del cliente y escalar el impacto de tu gestión.</p>
+          <p class="vacancy-meta">📍 Ubicación: Santiago de Chile</p>
+          <a href="https://shorturl.at/P31sY" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--small">Postula aquí</a>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal proceso de selección (timeline) -->
+  <div id="modal-proceso" class="modal-overlay">
+    <div class="modal-proceso">
+      <a href="#" class="modal-cerrar" aria-label="Cerrar">×</a>
+      <h3 class="subsection-title">Etapas del proceso</h3>
+      <p class="modal-proceso-intro">Nuestro proceso está diseñado para conocerte mejor, evaluar tus habilidades y que también puedas conocer cómo trabajamos en Adereso.</p>
+      <div class="timeline">
+        <div class="timeline-step" data-num="1">
+          <p class="step-label">Evaluación de CV</p>
+        </div>
+        <div class="timeline-step" data-num="2">
+          <p class="step-label">Entrevista online con People</p>
+        </div>
+        <div class="timeline-step" data-num="3">
+          <p class="step-label">Evaluación técnica</p>
+        </div>
+        <div class="timeline-step" data-num="4">
+          <p class="step-label">Entrevista con el líder del área</p>
+        </div>
+        <div class="timeline-step" data-num="5">
+          <p class="step-label">Entrevista con el CEO</p>
+        </div>
+        <div class="timeline-step" data-num="6">
+          <p class="step-label">Oferta</p>
+        </div>
+      </div>
+      <p class="modal-proceso-outro">A medida que avances, te iremos informando del estado de tu postulación por correo electrónico.</p>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    var root = document.getElementById('culture-carousel');
+    if (root) {
+      var viewport = root.querySelector('.culture-carousel__viewport');
+      var track = root.querySelector('.culture-carousel__track');
+      var slides = track.querySelectorAll('.culture-carousel__slide');
+      var caption = document.getElementById('culture-carousel-caption');
+      var dotsEl = document.getElementById('culture-carousel-dots');
+      var prev = root.querySelector('.culture-carousel__arrow--prev');
+      var next = root.querySelector('.culture-carousel__arrow--next');
+      var n = slides.length;
+      var i = 0;
+      var timer = null;
+      var paused = false;
+
+      function w() { return viewport.getBoundingClientRect().width; }
+
+      function layoutSlides() {
+        var W = w();
+        if (W <= 0) return;
+        slides.forEach(function(s) {
+          s.style.flexBasis = W + 'px';
+          s.style.width = W + 'px';
+        });
+      }
+
+      function go(to) {
+        i = (to + n * 100) % n;
+        var W = w();
+        track.style.transform = 'translateX(-' + (i * W) + 'px)';
+        if (caption) caption.textContent = slides[i].getAttribute('data-caption') || '';
+        dotsEl.querySelectorAll('.culture-carousel__dot').forEach(function(d, j) {
+          d.setAttribute('aria-current', j === i ? 'true' : 'false');
+        });
+      }
+
+      slides.forEach(function(_, j) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'culture-carousel__dot';
+        dot.setAttribute('aria-label', 'Foto ' + (j + 1));
+        dot.addEventListener('click', function() { go(j); armTimer(); });
+        dotsEl.appendChild(dot);
+      });
+
+      function tick() { if (!paused) go(i + 1); }
+      function armTimer() {
+        clearInterval(timer);
+        timer = setInterval(tick, 5000);
+      }
+
+      prev.addEventListener('click', function() { go(i - 1); armTimer(); });
+      next.addEventListener('click', function() { go(i + 1); armTimer(); });
+      root.addEventListener('mouseenter', function() { paused = true; });
+      root.addEventListener('mouseleave', function() { paused = false; });
+      root.addEventListener('focusin', function() { paused = true; });
+      root.addEventListener('focusout', function(e) { if (!root.contains(e.relatedTarget)) paused = false; });
+
+      var resizeT;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeT);
+        resizeT = setTimeout(function() {
+          track.style.transition = 'none';
+          layoutSlides();
+          go(i);
+          track.offsetHeight;
+          track.style.transition = '';
+        }, 100);
+      });
+
+      requestAnimationFrame(function() {
+        layoutSlides();
+        go(0);
+        armTimer();
+      });
+    }
+
+    // Cerrar modal al hacer clic en la X (sin mover el scroll)
+    document.querySelectorAll('.modal-cerrar').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var overlay = link.closest('.modal-overlay');
+        if (overlay) {
+          overlay.classList.add('cerrado');
+        }
+        var url = window.location.pathname + window.location.search;
+        if (window.history && window.history.replaceState) {
+          history.replaceState(null, document.title, url);
+        } else {
+          window.location.hash = '';
+        }
+      });
+    });
+
+    // Al abrir un modal: quitar clase cerrado y mantener scroll
+    document.querySelectorAll('a[href^="#modal-"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var hash = link.getAttribute('href');
+        if (!hash || hash === '#') return;
+        var id = hash.replace('#', '');
+        var modal = document.getElementById(id);
+        if (modal) modal.classList.remove('cerrado');
+        var scrollY = window.scrollY || window.pageYOffset;
+        requestAnimationFrame(function() { window.scrollTo(0, scrollY); });
+        setTimeout(function() { window.scrollTo(0, scrollY); }, 50);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
