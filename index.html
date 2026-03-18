@@ -29,6 +29,11 @@
   --max-width-hero-text: 850px;
 }
 
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Reset y base */
 *,
 *::before,
@@ -672,26 +677,109 @@ body {
   align-items: center;
   gap: 2rem;
 }
-.hero-nav__link {
+.hero-nav__item {
+  position: relative;
+}
+.hero-nav__link,
+.hero-nav__toggle {
   font-family: var(--font-title);
   font-weight: 500;
   font-size: 0.95rem;
   color: rgba(255,255,255,0.85);
   text-decoration: none;
   letter-spacing: 0.01em;
-  transition: color 0.2s, opacity 0.2s;
+  transition: color 0.2s;
   white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
-.hero-nav__link:hover {
+.hero-nav__link:hover,
+.hero-nav__toggle:hover {
   color: #FDD85E;
 }
+.hero-nav__arrow {
+  font-size: 0.65rem;
+  display: inline-block;
+  transition: transform 0.2s;
+  margin-top: 1px;
+}
+.hero-nav__item.open .hero-nav__arrow {
+  transform: rotate(180deg);
+}
+.hero-nav__item.open .hero-nav__toggle {
+  color: #FDD85E;
+}
+
+/* Dropdown */
+.hero-nav__dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0;
+  background: #111111;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 0.5rem;
+  min-width: 280px;
+  z-index: 900;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+}
+.hero-nav__item.open .hero-nav__dropdown {
+  display: block;
+}
+.hero-nav__dropdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s;
+  color: inherit;
+}
+.hero-nav__dropdown-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+.hero-nav__dropdown-icon {
+  flex-shrink: 0;
+  width: 1.3rem;
+  color: #b0b0b0;
+  margin-top: 0.15rem;
+}
+.hero-nav__dropdown-icon svg {
+  display: block;
+}
+.hero-nav__dropdown-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.18rem;
+}
+.hero-nav__dropdown-desc {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #888;
+  display: block;
+  line-height: 1.4;
+}
+.hero-nav__dropdown-sep {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin: 0.25rem 0;
+}
+
 @media (max-width: 640px) {
-  .hero-nav {
-    gap: 1rem;
-  }
-  .hero-nav__link {
-    font-size: 0.82rem;
-  }
+  .hero-nav { gap: 1rem; }
+  .hero-nav__link,
+  .hero-nav__toggle { font-size: 0.82rem; }
+  .hero-nav__dropdown { min-width: 230px; }
 }
 
 /* Modal cultura */
@@ -820,9 +908,35 @@ body {
         <img src="assets/logo-adereso.png" alt="Adereso" class="h-10 w-auto object-contain block">
       </a>
       <nav class="hero-nav" aria-label="Navegación principal">
-        <a href="#modal-unete" class="hero-nav__link">Únete al equipo</a>
-        <a href="#modal-cultura" class="hero-nav__link">Nuestra cultura</a>
-        <a href="#modal-beneficios" class="hero-nav__link">Beneficios</a>
+        <!-- Únete al equipo con dropdown -->
+        <div class="hero-nav__item">
+          <button type="button" class="hero-nav__toggle" aria-expanded="false" aria-haspopup="true">
+            Únete al equipo <span class="hero-nav__arrow">▼</span>
+          </button>
+          <div class="hero-nav__dropdown" role="menu">
+            <a href="#unete" class="hero-nav__dropdown-item" role="menuitem">
+              <span class="hero-nav__dropdown-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </span>
+              <span>
+                <span class="hero-nav__dropdown-title">Ver vacantes</span>
+                <span class="hero-nav__dropdown-desc">Revisa las posiciones disponibles y postula</span>
+              </span>
+            </a>
+            <hr class="hero-nav__dropdown-sep">
+            <a href="#proceso" class="hero-nav__dropdown-item" role="menuitem">
+              <span class="hero-nav__dropdown-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <span>
+                <span class="hero-nav__dropdown-title">Proceso de selección</span>
+                <span class="hero-nav__dropdown-desc">Conoce las etapas y qué esperar en cada una</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <a href="#cultura" class="hero-nav__link">Nuestra cultura</a>
+        <a href="#beneficios" class="hero-nav__link">Beneficios</a>
       </nav>
     </div>
     <div class="hero-inner">
@@ -1346,8 +1460,38 @@ body {
       });
     });
 
+    // Dropdown nav toggle
+    var navItems = document.querySelectorAll('.hero-nav__item');
+    navItems.forEach(function(item) {
+      var toggle = item.querySelector('.hero-nav__toggle');
+      if (!toggle) return;
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = item.classList.contains('open');
+        navItems.forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) {
+          item.classList.add('open');
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+    document.addEventListener('click', function() {
+      navItems.forEach(function(i) {
+        i.classList.remove('open');
+        var t = i.querySelector('.hero-nav__toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.querySelectorAll('.hero-nav__dropdown-item').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navItems.forEach(function(i) { i.classList.remove('open'); });
+      });
+    });
+
     // Al abrir un modal: quitar clase cerrado y mantener scroll
-    document.querySelectorAll('a[href^="#modal-"], .hero-nav__link[href^="#modal-"]').forEach(function(link) {
+    document.querySelectorAll('a[href^="#modal-"]').forEach(function(link) {
       link.addEventListener('click', function(e) {
         var hash = link.getAttribute('href');
         if (!hash || hash === '#') return;
