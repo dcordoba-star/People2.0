@@ -990,11 +990,59 @@ body {
 }
 
 /* Active nav link */
-.hero-nav__link.nav-active {
-  color: #FDD85E;
+.hero-nav__link.nav-active { color: #FDD85E; }
+.hero-nav__toggle.nav-active { color: #FDD85E; }
+
+/* Botones de navegación en el home */
+.home-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space);
+  max-width: 700px;
+  margin: var(--space-xl) auto 0;
 }
-.hero-nav__toggle.nav-active {
+@media (max-width: 640px) {
+  .home-nav-grid { grid-template-columns: 1fr; }
+}
+.home-nav-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  text-align: left;
+  color: inherit;
+  width: 100%;
+}
+.home-nav-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(253,216,94,0.4);
+  transform: translateY(-2px);
+}
+.home-nav-btn__icon {
+  flex-shrink: 0;
   color: #FDD85E;
+  margin-top: 0.1rem;
+}
+.home-nav-btn__title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.home-nav-btn__desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: #888;
+  display: block;
+  line-height: 1.4;
 }
 
 /* Footer */
@@ -1048,55 +1096,6 @@ body {
       <a href="#" class="hero-logo-link" aria-label="Adereso - Inicio" data-page="home">
         <img src="assets/logo-adereso.png" alt="Adereso" class="h-10 w-auto object-contain block">
       </a>
-      <nav class="hero-nav" aria-label="Navegación principal">
-        <!-- People dropdown -->
-        <div class="hero-nav__item">
-          <button type="button" class="hero-nav__toggle" aria-expanded="false" aria-haspopup="true">
-            People <span class="hero-nav__arrow">▼</span>
-          </button>
-          <div class="hero-nav__dropdown" role="menu">
-            <a href="#" class="hero-nav__dropdown-item" data-page="unete" role="menuitem">
-              <span class="hero-nav__dropdown-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </span>
-              <span>
-                <span class="hero-nav__dropdown-title">Únete al equipo</span>
-                <span class="hero-nav__dropdown-desc">Vacantes y proceso de selección</span>
-              </span>
-            </a>
-            <hr class="hero-nav__dropdown-sep">
-            <a href="#" class="hero-nav__dropdown-item" data-page="cultura" role="menuitem">
-              <span class="hero-nav__dropdown-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </span>
-              <span>
-                <span class="hero-nav__dropdown-title">Nuestra cultura</span>
-                <span class="hero-nav__dropdown-desc">Valores, misión y virtudes</span>
-              </span>
-            </a>
-            <hr class="hero-nav__dropdown-sep">
-            <a href="#" class="hero-nav__dropdown-item" data-page="beneficios" role="menuitem">
-              <span class="hero-nav__dropdown-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-              </span>
-              <span>
-                <span class="hero-nav__dropdown-title">Beneficios</span>
-                <span class="hero-nav__dropdown-desc">Chile, México y Global</span>
-              </span>
-            </a>
-            <hr class="hero-nav__dropdown-sep">
-            <a href="#" class="hero-nav__dropdown-item" data-page="handbook" role="menuitem">
-              <span class="hero-nav__dropdown-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              </span>
-              <span>
-                <span class="hero-nav__dropdown-title">Handbook</span>
-                <span class="hero-nav__dropdown-desc">Cómo trabajamos, onboarding y herramientas</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </nav>
     </div>
   </header>
 
@@ -1105,6 +1104,50 @@ body {
     <section class="hero-section">
       <div class="hero-inner">
         <div class="hero-content">
+          <h1 class="hero-title">Construimos el futuro de la experiencia del cliente</h1>
+          <p class="hero-desc">Únete a un equipo que combina tecnología, cultura y ejecución real</p>
+
+          <div class="home-nav-grid">
+            <button class="home-nav-btn" data-page="unete">
+              <span class="home-nav-btn__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span>
+                <span class="home-nav-btn__title">Únete al equipo</span>
+                <span class="home-nav-btn__desc">Vacantes y proceso de selección</span>
+              </span>
+            </button>
+
+            <button class="home-nav-btn" data-page="cultura">
+              <span class="home-nav-btn__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+              <span>
+                <span class="home-nav-btn__title">Nuestra cultura</span>
+                <span class="home-nav-btn__desc">Valores, misión y virtudes</span>
+              </span>
+            </button>
+
+            <button class="home-nav-btn" data-page="beneficios">
+              <span class="home-nav-btn__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              </span>
+              <span>
+                <span class="home-nav-btn__title">Beneficios</span>
+                <span class="home-nav-btn__desc">Chile, México y Global</span>
+              </span>
+            </button>
+
+            <button class="home-nav-btn" data-page="handbook">
+              <span class="home-nav-btn__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </span>
+              <span>
+                <span class="home-nav-btn__title">Handbook</span>
+                <span class="home-nav-btn__desc">Cómo trabajamos, onboarding y herramientas</span>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
